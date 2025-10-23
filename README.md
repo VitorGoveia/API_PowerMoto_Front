@@ -1,58 +1,46 @@
-# Projeto Python – API de Confecção de Orçamentos
+# ⚡ POWER MOTO GROUP - Sistema de Gerenciamento de Pedidos (Frontend)
 
-Este projeto tem como objetivo desenvolver uma API para a geração de orçamentos da empresa *POWER MOTO GROUP*. O sistema permitirá a criação de orçamentos de forma estruturada, seguindo um formato padronizado para melhor organização e compreensão.
-Com esse projeto viso realizar os orçamentos manuais de forma mais rápida, e estabelecer um banco de dados para os ites e o registro dos orçamentos
+Este projeto é a interface visual do sistema de orçamentos da Power Moto Group, desenvolvida para facilitar o acesso e o uso das funcionalidades da API principal.
+A aplicação oferece uma navegação simples e moderna para o cadastro e gerenciamento de clientes, itens e pedidos.
 
-##### Formato do Orçamento:
-Cada item do orçamento seguirá o seguinte modelo:
+## 🖥️ Visão Geral
 
-Nome do item (código da peça) - <número de unidades> UNIDADES *(Caso tenha mais de uma unidade)*
-Valor: R$ <valor do item>
+O sistema foi projetado para uso interno da empresa, com foco em agilidade, clareza e padronização no processo de confecção de orçamentos.
+Na tela inicial, o usuário pode escolher entre as três principais seções:
 
-*Casos de prazo:*
-- Itens em estoque: 
-Prazo: À pronta entrega 
+👥 Cliente – Cadastro e gerenciamento de clientes.
 
-- Itens de encomenda:
-Prazo estimado: <dias> úteis (encomenda)
+📦 Item – Controle do catálogo de produtos e peças (SKU).
 
-Exemplo de orçamento:
+🛒 Pedido – Criação e acompanhamento de pedidos/orçamentos.
 
-```
-Filtro de óleo (JG571014) 
-Valor: R$ 21,38
-Prazo: À pronta entrega
-```
+💡 Tela Inicial
 
-## Tecnologias:
+## 🧩 Tecnologias Utilizadas
 
-O projeto será feito via Pyhton, para o banco de dados vamos utilizar a bibilioteca SQLALCHEMY, utilizando POSTGRESQL
+-> JavaScript: Para manipulação dinâmica de dados e comunicação com a API.
 
-## As rotas principais são: 
+->	HTML5:	Criação da estrutura base do sistema.
 
-### clientes
+-> CSS3:	Design moderno com foco em usabilidade e contraste.
 
-/clientes - (GET, POST)
-
-/clientes/id - (GET, 
-PUT, DELETE)
-
-### Itens
-/itens  -  GET, POST)
+-> Integração	Fetch API:	Comunicação direta com o backend Flask via endpoints REST.
 
 
-/itens/SKU    -  (GET, PUT, DELETE)
+## ⚙️ Funcionalidades Principais
 
-### Itens
+🔗 Integração total com o backend Flask + PostgreSQL.
 
-/itensPedido - (GET, POST)
+📋 Listagem, cadastro, edição e exclusão de clientes.
 
+📦 Gerenciamento de itens do catálogo com identificação por SKU.
 
-/itensPedido/id - (GET, PUT, DELETE)
+🧾 Criação e acompanhamento de pedidos/orçamentos, com exibição dos itens vinculados.
 
-### pedidos
+🌗 Interface visual responsiva e organizada, com ícones e cores que identificam cada módulo:
 
-/pedidos - (GET, POST)
+Verde → Clientes
 
+Vermelho → Itens
 
-/pedidos/id - (GET, PUT, DELETE)
+Laranja → Pedidos
