@@ -28,16 +28,31 @@ Prazo: À pronta entrega
 
 O projeto será feito via Pyhton, para o banco de dados vamos utilizar a bibilioteca SQLALCHEMY, utilizando POSTGRESQL
 
-As rotas principais são: 
+## As rotas principais são: 
 
-/clientes                       -               (GET, POST)
-/clientes/id                    -               (GET, PUT, DELETE)
+### clientes
 
-/itens                          -               (GET, POST)
-/itens/SKU                      -               (GET, PUT, DELETE)
+/clientes - (GET, POST)
 
-/itensPedido                    -               (GET, POST)
-/itensPedido/id                 -               (GET, PUT, DELETE)
+/clientes/id - (GET, 
+PUT, DELETE)
 
-/pedidos                        -               (GET, POST)
-/pedidos/id                     -               (GET, PUT, DELETE)
+### Itens
+/itens  -  GET, POST)
+
+
+/itens/SKU    -  (GET, PUT, DELETE)
+
+### Itens
+
+/itensPedido - (GET, POST)
+
+
+/itensPedido/id - (GET, PUT, DELETE)
+
+### pedidos
+
+/pedidos - (GET, POST)
+
+
+/pedidos/id - (GET, PUT, DELETE)
