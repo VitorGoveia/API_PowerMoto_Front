@@ -540,6 +540,11 @@ label.input{
     padding: 1rem 1rem 0 1rem;
 }
 
+.item-modal-line-valor{
+    background: #0a0a0a;
+    padding: 0 0 2rem 0;
+}
+
 .item-modal-row {
     display: flex;
     justify-content: space-between;

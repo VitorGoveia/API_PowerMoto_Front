@@ -46,14 +46,12 @@ function createPedidoCard(pedido) {
     const itensIds = pedido['item pedido'] || [];
     const itensBadges = itensIds.map(id => `<span class="item-badge">${id.SKU_item}</span>`).join('');
 
-    console.log(pedido['id do pedido'])
-
     return `
         <div class="pedido-card">
             <div class="pedido-header">
                 <div class="pedido-id">${pedido['id do pedido']}</div>
                 <div class="pedido-info">
-                    <div class="pedido-date">📅 ${pedido.data}</div>
+                    <div class="pedido-date">📅 ${pedido.data} - Valor total: R$ ${pedido["Valor Total"]}</div>
                     <div class="pedido-phone">👨🏻‍💼 Cliente: ${pedido['nome cliente']} - 📞 ${pedido['telefone cliente']}</div>
                 </div>
                 <div class="pedido-actions">
@@ -93,7 +91,8 @@ async function viewItens(PedidoId) {
 
             if (response_json.sucesso && response_json.dados) {
                 const itensPedido = response_json.dados["item pedido"] || [response_json.dados];
-                console.log(itensPedido)
+                
+                const valorTotal = response_json.dados["Valor Total"]
 
                 itensPedido.forEach(it => {
                     const sku = it.SKU_item || it.SKU || it.sku;
@@ -119,7 +118,17 @@ async function viewItens(PedidoId) {
                             </div>
                         </div>
                     `;
-                });
+                })
+                
+                content.innerHTML += `
+                        <div class="item-modal-card">
+                            <div class="item-modal-line-valor">
+                            Valor total: R$ ${valorTotal}
+                            </div>
+                        </div>
+                    `;
+                
+                ;
             }
         if (content.innerHTML === '') {
             content.innerHTML = '<div class="loading">Nenhum item encontrado</div>';
