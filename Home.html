@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="Home.Css">
+    <link rel="shortcut icon" href="../Imagens/favicon.ico" type="image/x-icon">  
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Imagens/Logo.jfif" alt="Imagem Logo" width="120" height="60">
+        </div>
+    </header>
+
+    <div class="container">
+        <div>
+            <h1>Sistema de Gerenciamento de Pedidos</h1>
+            <p class="subtitle">Escolha uma opção para começar</p>
+        </div>
+
+        <div class="buttons-container">
+            <button class="menu-button cliente-btn" onclick="navigateTo('Cliente/Cliente.html')">
+                <div class="icon">👥</div>
+                <div class="button-label">CLIENTE</div>
+            </button>
+
+            <button class="menu-button item-btn" onclick="navigateTo('Item/Item.html')">
+                <div class="icon">📦</div>
+                <div class="button-label">ITEM</div>
+            </button>
+
+            <button class="menu-button pedido-btn" onclick="navigateTo('Pedido/Pedido.html')">
+                <div class="icon">🛒</div>
+                <div class="button-label">PEDIDO</div>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = `/${page}`;
+        }
+    </script>
+</body>
+</html>

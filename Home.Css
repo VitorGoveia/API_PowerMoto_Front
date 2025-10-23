@@ -1,0 +1,230 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        header {
+            background: linear-gradient(90deg, #000000 35%, #0d1b2a 100%);
+            padding: 1.5rem 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            border-bottom: 2px solid #e2e4e8;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #4a90e2 0%, #67b5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0 auto 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+        }
+
+        .subtitle {
+            color: #a0a0a0;
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3.5rem;
+            width: 100%;
+            max-width: 1000px;
+            padding: 0.5rem;
+        }
+
+        .menu-button {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 3px solid #333333;
+            border-radius: 50%;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .menu-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(103, 181, 255, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 50%;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-15px) scale(1.08);
+            border-color: #4a90e2;
+            box-shadow: 0 15px 50px rgba(74, 144, 226, 0.4);
+        }
+
+        .menu-button:hover::before {
+            opacity: 1;
+        }
+
+        .menu-button:active {
+            transform: translateY(-10px) scale(1.03);
+        }
+
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover .icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .button-label {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover .button-label {
+            color: #4a90e2;
+            transform: translateY(5px);
+        }
+
+        /* Cores específicas para cada botão */
+        .cliente-btn {
+            border-color: #2ecc71;
+        }
+
+        .cliente-btn:hover {
+            border-color: #27ae60;
+            box-shadow: 0 15px 50px rgba(46, 204, 113, 0.4);
+        }
+
+        .cliente-btn .icon {
+            color: #2ecc71;
+        }
+
+        .item-btn {
+            border-color: #e74c3c;
+        }
+
+        .item-btn:hover {
+            border-color: #c0392b;
+            box-shadow: 0 15px 50px rgba(231, 76, 60, 0.4);
+        }
+
+        .item-btn .icon {
+            color: #e74c3c;
+        }
+
+        .pedido-btn {
+            border-color: #f39c12;
+        }
+
+        .pedido-btn:hover {
+            border-color: #d68910;
+            box-shadow: 0 15px 50px rgba(243, 156, 18, 0.4);
+        }
+
+        .pedido-btn .icon {
+            color: #f39c12;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .buttons-container {
+                gap: 2rem;
+                padding: 1rem;
+            }
+
+            .menu-button {
+                width: 180px;
+                height: 180px;
+            }
+
+            .icon {
+                font-size: 3rem;
+            }
+
+            .button-label {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .menu-button {
+                width: 160px;
+                height: 160px;
+            }
+
+            .icon {
+                font-size: 2.5rem;
+            }
+
+            .button-label {
+                font-size: 1rem;
+            }
+        }

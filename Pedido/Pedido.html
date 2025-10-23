@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Power Moto</title>
+    <link rel="stylesheet" href="Pedido.Css">
+    <link rel="shortcut icon" href="../Imagens/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Imagens/Logo.jfif" alt="Imagem Logo" width="120" height="60">
+        </div>
+        <button class="back-btn" onclick="goBack()">← Voltar</button>
+    </header>
+
+    <div class="container">
+        <h1>Gerenciamento de Pedidos</h1>
+
+        <section class="search-section">
+            <h2>🔍 Buscar Pedido por ID ou Telefone</h2>
+            <div class="search-box">
+                <input type="number" id="searchId" placeholder="Digite o ID do pedido ou o telefone do cliente">
+                <button onclick="searchPedidoById()" class="btn-primary">Buscar</button>
+            </div>
+            <div id="searchResult" class="result-box"></div>
+        </section>
+
+        <section class="form-section">
+            <h2>➕ Criar Novo Pedido</h2>
+            <form id="createForm" onsubmit="createPedido(event)">
+                <div class="form-group">
+                    <label for="createTelefone">Telefone do Cliente</label>
+                    <input type="tel" id="createTelefone" required placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="itens-section">
+                    <div class="itens-header">
+                        <h3>📦 Itens do Pedido</h3>
+                        <button type="button" onclick="addItemCreate()" class="btn-add-item">+ Adicionar Item</button>
+                    </div>
+                    <div id="createItens" class="itens-list">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-success">Criar Pedido</button>
+            </form>
+        </section>
+
+        <section class="form-section">
+            <h2>✏️ Editar Pedido</h2>
+            <form id="editForm" onsubmit="editPedido(event)">
+                <div class="form-group">
+                    <label for="editId">ID do Pedido</label>
+                    <input type="number" id="editId" required placeholder="ID do pedido">
+                </div>
+                <div class="form-group">
+                    <label for="editTelefone">Telefone do Cliente</label>
+                    <input type="tel" id="editTelefone" required placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="itens-section">
+                    <div class="itens-header">
+                        <h3>📦 Itens do Pedido (IDs)</h3>
+                        <button type="button" onclick="addItemEdit()" class="btn-add-item">+ Adicionar ID de Item</button>
+                    </div>
+                    <div id="editItens" class="itens-list">
+                    </div>
+                    <small class="help-text">Digite os IDs dos ItemPedido que devem permanecer neste pedido</small>
+                </div>
+
+                <button type="submit" class="btn-warning">Atualizar Pedido</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h2>📋 Lista de Pedidos</h2>
+                <button onclick="loadPedidos()" class="btn-refresh">🔄 Atualizar</button>
+            </div>
+            <div id="pedidosList" class="pedidos-list">
+                <div class="loading">Carregando pedidos...</div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirmar Ação</h3>
+            <p id="modalMessage">Tem certeza que deseja realizar esta ação?</p>
+            <div class="modal-buttons">
+                <button onclick="closeModal()" class="btn-secondary">Cancelar</button>
+                <button id="modalConfirm" class="btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="itensModal" class="modal">
+        <div class="modal-content modal-large">
+            <h3>📦 Itens do Pedido</h3>
+            <div id="itensModalContent" class="itens-modal-list">
+            </div>
+            <div class="modal-buttons">
+                <button onclick="closeItensModal()" class="btn-primary">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Pedido.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itens - Power Moto</title>
+    <link rel="stylesheet" href="Item.Css">
+    <link rel="shortcut icon" href="../Imagens/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Imagens/Logo.jfif" alt="Imagem Logo" width="120" height="60">
+        </div>
+        <button class="back-btn" onclick="goBack()">← Voltar</button>
+    </header>
+
+    <div class="container">
+        <h1>Gerenciamento de Itens</h1>
+
+        <section class="search-section">
+            <h2>🔍 Buscar Item por SKU</h2>
+            <div class="search-box">
+                <input type="text" id="searchSKU" placeholder="Digite o SKU do item">
+                <button onclick="searchItemBySKU()" class="btn-primary">Buscar</button>
+            </div>
+            <div id="searchResult" class="result-box"></div>
+        </section>
+
+        <section class="form-section">
+            <h2>➕ Criar Novo Item</h2>
+            <form id="createForm" onsubmit="createItem(event)">
+                <div class="form-group">
+                    <label for="createSKU">SKU</label>
+                    <input type="text" id="createSKU" required placeholder="SKU do item">
+                </div>
+                <div class="form-group">
+                    <label for="createNome">Nome</label>
+                    <input type="text" id="createNome" required placeholder="Nome do item">
+                </div>
+                <div class="form-group">
+                    <label for="createMarca">Marca</label>
+                    <input type="text" id="createMarca" required placeholder="Marca do item">
+                </div>
+                <div class="form-group">
+                    <label for="createValor">Valor</label>
+                    <input type="number" id="createValor" step="0.01" required placeholder="XXX.XX">
+                </div>
+                <button type="submit" class="btn-success">Criar Item</button>
+            </form>
+        </section>
+
+        <section class="form-section">
+            <h2>✏️ Editar Item</h2>
+            <form id="editForm" onsubmit="editItem(event)">
+                <div class="form-group">
+                    <label for="editSku">SKU do Item</label>
+                    <input type="text" id="editSku" required placeholder="SKU do produto">
+                </div>
+                <div class="form-group">
+                    <label for="editNome">Nome</label>
+                    <input type="text" id="editNome" required placeholder="Nome do item">
+                </div>
+                <div class="form-group">
+                    <label for="editMarca">Marca</label>
+                    <input type="text" id="editMarca" required placeholder="Marca do item">
+                </div>
+                <div class="form-group">
+                    <label for="editValor">Valor</label>
+                    <input type="number" id="editValor" required placeholder="XXX.XX">
+                </div>
+                <div class="form-group">
+                    <label for="editStatus">Status</label>
+                    <select id="editStatus" required>
+                        <option value="">Selecione o status</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-warning">Atualizar Iteme</button>
+            </form>
+        </section>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h2>📋 Lista de Itens</h2>
+                <button onclick="loaditens()" class="btn-refresh">🔄 Atualizar</button>
+            </div>
+            <div id="itensList" class="itens-list">
+                <div class="loading">Carregando itens...</div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirmar Ação</h3>
+            <p id="modalMessage">Tem certeza que deseja realizar esta ação?</p>
+            <div class="modal-buttons">
+                <button onclick="closeModal()" class="btn-secondary">Cancelar</button>
+                <button id="modalConfirm" class="btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Item.js"></script>
+</body>
+</html>

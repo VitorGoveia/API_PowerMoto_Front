@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Power Moto</title>
+    <link rel="stylesheet" href="Cliente.Css">
+    <link rel="shortcut icon" href="../Imagens/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../Imagens/Logo.jfif" alt="Imagem Logo" width="120" height="60">
+        </div>
+        <button class="back-btn" onclick="goBack()">← Voltar</button>
+    </header>
+
+    <div class="container">
+        <h1>Gerenciamento de Clientes</h1>
+
+        <!-- Busca por ID -->
+        <section class="search-section">
+            <h2>🔍 Buscar Cliente por ID</h2>
+            <div class="search-box">
+                <input type="number" id="searchId" placeholder="Digite o ID do cliente">
+                <button onclick="searchClientById()" class="btn-primary">Buscar</button>
+            </div>
+            <div id="searchResult" class="result-box"></div>
+        </section>
+
+        <!-- Criar Novo Cliente -->
+        <section class="form-section">
+            <h2>➕ Criar Novo Cliente</h2>
+            <form id="createForm" onsubmit="createClient(event)">
+                <div class="form-group">
+                    <label for="createNome">Nome</label>
+                    <input type="text" id="createNome" required placeholder="Nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="createTelefone">Telefone</label>
+                    <input type="tel" id="createTelefone" required placeholder="(00) 00000-0000">
+                </div>
+                <button type="submit" class="btn-success">Criar Cliente</button>
+            </form>
+        </section>
+
+        <!-- Editar Cliente -->
+        <section class="form-section">
+            <h2>✏️ Editar Cliente</h2>
+            <form id="editForm" onsubmit="editClient(event)">
+                <div class="form-group">
+                    <label for="editId">ID do Cliente</label>
+                    <input type="number" id="editId" required placeholder="ID do cliente">
+                </div>
+                <div class="form-group">
+                    <label for="editNome">Nome</label>
+                    <input type="text" id="editNome" required placeholder="Nome completo">
+                </div>
+                <div class="form-group">
+                    <label for="editTelefone">Telefone</label>
+                    <input type="tel" id="editTelefone" required placeholder="(00) 00000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="editStatus">Status</label>
+                    <select id="editStatus" required>
+                        <option value="">Selecione o status</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-warning">Atualizar Cliente</button>
+            </form>
+        </section>
+
+        <!-- Lista de Clientes -->
+        <section class="list-section">
+            <div class="list-header">
+                <h2>📋 Lista de Clientes</h2>
+                <button onclick="loadClients()" class="btn-refresh">🔄 Atualizar</button>
+            </div>
+            <div id="clientsList" class="clients-list">
+                <div class="loading">Carregando clientes...</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalTitle">Confirmar Ação</h3>
+            <p id="modalMessage">Tem certeza que deseja realizar esta ação?</p>
+            <div class="modal-buttons">
+                <button onclick="closeModal()" class="btn-secondary">Cancelar</button>
+                <button id="modalConfirm" class="btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Cliente.js"></script>
+</body>
+</html>
