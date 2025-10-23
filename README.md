@@ -29,6 +29,7 @@ Prazo: À pronta entrega
 O projeto será feito via Pyhton, para o banco de dados vamos utilizar a bibilioteca SQLALCHEMY, utilizando POSTGRESQL
 
 As rotas principais são: 
+
 /clientes                       -               (GET, POST)
 /clientes/id                    -               (GET, PUT, DELETE)
 
