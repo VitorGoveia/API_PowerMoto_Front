@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clientes - Power Moto</title>
-    <link rel="stylesheet" href="Cliente.Css">
-    <link rel="shortcut icon" href="../Imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../Css/Cliente.Css">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../Imagens/Logo.jfif" alt="Imagem Logo" width="120" height="60">
+            <img src="../assets/Logo.jfif" alt="Imagem Logo" width="120" height="60">
         </div>
         <button class="back-btn" onclick="goBack()">← Voltar</button>
     </header>
@@ -18,7 +18,6 @@
     <div class="container">
         <h1>Gerenciamento de Clientes</h1>
 
-        <!-- Busca por ID -->
         <section class="search-section">
             <h2>🔍 Buscar Cliente por ID</h2>
             <div class="search-box">
@@ -28,7 +27,6 @@
             <div id="searchResult" class="result-box"></div>
         </section>
 
-        <!-- Criar Novo Cliente -->
         <section class="form-section">
             <h2>➕ Criar Novo Cliente</h2>
             <form id="createForm" onsubmit="createClient(event)">
@@ -44,7 +42,6 @@
             </form>
         </section>
 
-        <!-- Editar Cliente -->
         <section class="form-section">
             <h2>✏️ Editar Cliente</h2>
             <form id="editForm" onsubmit="editClient(event)">
@@ -72,7 +69,6 @@
             </form>
         </section>
 
-        <!-- Lista de Clientes -->
         <section class="list-section">
             <div class="list-header">
                 <h2>📋 Lista de Clientes</h2>
@@ -84,7 +80,6 @@
         </section>
     </div>
 
-    <!-- Modal de Confirmação -->
     <div id="modal" class="modal">
         <div class="modal-content">
             <h3 id="modalTitle">Confirmar Ação</h3>
@@ -96,6 +91,6 @@
         </div>
     </div>
 
-    <script src="Cliente.js"></script>
+    <script src="../js/Cliente.js"></script>
 </body>
 </html>

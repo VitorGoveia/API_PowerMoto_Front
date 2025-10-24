@@ -1,13 +1,10 @@
-// Configuração da URL base da API
-const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = 'https://api-powermoto.onrender.com';
 let deleteClientId = null;
 
-// Função para voltar à página anterior
 function goBack() {
-    window.location.href = '../Home.html';
+    window.location.href = '../index.html';
 }
 
-// Função para carregar todos os clientes
 async function loadClients() {
     const clientsList = document.getElementById('clientsList');
     clientsList.innerHTML = '<div class="loading">Carregando clientes...</div>';
@@ -149,13 +146,10 @@ async function createClient(event) {
 
         const result = await response.json();
         
-        // Mostra mensagem de sucesso
         showTemporaryMessage('Cliente criado com sucesso!', 'success');
         
-        // Limpa o formulário
         document.getElementById('createForm').reset();
         
-        // Recarrega a lista
         loadClients();
 
     } catch (error) {
@@ -164,21 +158,18 @@ async function createClient(event) {
     }
 }
 
-// Função para preencher formulário de edição
 function fillEditForm(id, nome, telefone, status) {
     document.getElementById('editId').value = id;
     document.getElementById('editNome').value = nome;
     document.getElementById('editTelefone').value = telefone;
     document.getElementById('editStatus').value = status;
     
-    // Scroll suave até o formulário
     document.querySelector('.form-section:nth-of-type(3)').scrollIntoView({ 
         behavior: 'smooth',
         block: 'center'
     });
 }
 
-// Função para editar cliente
 async function editClient(event) {
     event.preventDefault();
     
@@ -209,13 +200,10 @@ async function editClient(event) {
 
         const result = await response.json();
         
-        // Mostra mensagem de sucesso
         showTemporaryMessage('Cliente atualizado com sucesso!', 'success');
         
-        // Limpa o formulário
         document.getElementById('editForm').reset();
         
-        // Recarrega a lista
         loadClients();
 
     
@@ -229,7 +217,6 @@ async function editClient(event) {
     }
 }
 
-// Função para confirmar exclusão
 function confirmDelete(id) {
     deleteClientId = id;
     const modal = document.getElementById('modal');
@@ -239,11 +226,9 @@ function confirmDelete(id) {
     
     modal.classList.add('active');
     
-    // Define o botão de confirmação
     document.getElementById('modalConfirm').onclick = deleteClient;
 }
 
-// Função para excluir cliente
 async function deleteClient() {
     try {
         const response = await fetch(`${API_BASE_URL}/clientes/${deleteClientId}`, {
@@ -265,13 +250,11 @@ async function deleteClient() {
     }
 }
 
-// Função para fechar modal
 function closeModal() {
     document.getElementById('modal').classList.remove('active');
     deleteClientId = null;
 }
 
-// Função para mostrar mensagem temporária
 function showTemporaryMessage(message, type) {
     const messageClass = type === 'success' ? 'success-message' : 'error-message';
     const messageDiv = document.createElement('div');
@@ -294,14 +277,12 @@ function showTemporaryMessage(message, type) {
     }, 3000);
 }
 
-// Função auxiliar para mostrar mensagens em elementos específicos
 function showMessage(element, message, type) {
     const messageClass = type === 'success' ? 'success-message' : 'error-message';
     element.classList.add('active');
     element.innerHTML = `<div class="${messageClass}">${message}</div>`;
 }
 
-// Adiciona animações CSS dinamicamente
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
@@ -328,12 +309,10 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Fechar modal ao clicar fora
 document.getElementById('modal').addEventListener('click', function(e) {
     if (e.target === this) {
         closeModal();
     }
 });
 
-// Carrega os clientes ao carregar a página
 document.addEventListener('DOMContentLoaded', loadClients);

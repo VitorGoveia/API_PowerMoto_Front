@@ -1,11 +1,11 @@
-const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = 'https://api-powermoto.onrender.com';
 let deletePedidoId = null;
 let createItemCount = 0;
 let editItemCount = 0;
 let currentPedidoItens = [];
 
 function goBack() {
-    window.location.href = '../Home.html';
+    window.location.href = '../index.html';
 }
 
 async function loadPedidos() {
